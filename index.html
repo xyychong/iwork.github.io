@@ -1,0 +1,405 @@
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>同步带节线长计算</title>
+<meta name='description' content='同步带节线长计算工具，计算生成的数据仅供参考，具体应以实际应用为准。' />
+<link rel="stylesheet" type="text/css" href="base.css"/>
+<link rel="stylesheet" type="text/css" href="layout.css"/>
+<link href="commons.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="lib.min.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a2350f840983256496adb9028ca00bcc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript">
+var _mvq = window._mvq || []; 
+window._mvq = _mvq;
+_mvq.push(['$setAccount', 'm-95238-0']);
+
+_mvq.push(['$setGeneral', '', '', /*用户名*/ '', /*用户id*/ '']);//如果不传用户名、用户id，此句可以删掉
+_mvq.push(['$logConversion']);
+(function() {
+var mvl = document.createElement('script');
+mvl.type = 'text/javascript'; mvl.async = true;
+mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(mvl, s); 
+})(); 
+</script>
+</head>
+<body  id="jishu_02">
+<div class="pageWidth" id="box_root">
+  <div id="box_main">
+    <div id="box_main_sub3">
+      <div id="box_main_sub3_sub1">
+        <div id="box_main_sub3_sub1_sub2">
+          <div id="box_main_sub3_sub1_sub2_sub1">
+            <div xmlns="" class="columnSpace" id="elem-FrontSpecifies_show01-1378102780318" name="说明页">
+              <script type="text/javascript" src="FrontNews_list01.js"></script>
+              <script type="text/javascript">	
+	// <![CDATA[
+	FrontNews_list01['FrontNews_list01-1378103793238_init'] = function(){
+		var showDegree=0;
+		var showQuestionTag=0;
+		var showMessageCount=0;
+		var otherShowDegree=0;
+		var otherShowMessageCount=0;
+		var otherShowQuestionTag=0;
+			otherShowMessageCount=1;
+			if(showDegree == '1' || showQuestionTag == '1' || showMessageCount == '1' ){
+					FrontNews_list01.getAjaxValueByNewsId("10","false",showDegree,showMessageCount,showQuestionTag,"FrontNews_list01-1378103793238_VisitedCount_1","FrontNews_list01-1378103793238_CommentCount_1","FrontNews_list01-1378103793238_showQuestionTag_1");
+					FrontNews_list01.getAjaxValueByNewsId("16","false",showDegree,showMessageCount,showQuestionTag,"FrontNews_list01-1378103793238_VisitedCount_2","FrontNews_list01-1378103793238_CommentCount_2","FrontNews_list01-1378103793238_showQuestionTag_2");
+					FrontNews_list01.getAjaxValueByNewsId("17","false",showDegree,showMessageCount,showQuestionTag,"FrontNews_list01-1378103793238_VisitedCount_3","FrontNews_list01-1378103793238_CommentCount_3","FrontNews_list01-1378103793238_showQuestionTag_3");
+			}		
+	}
+	function setVisited(id,linkUrl,detailOpenStyle){	
+		//读取资讯的浏览次数！
+		$.get("/FrontNews.do", "method=getVisitedCountByAjax&newsId="+id, function(data){
+			var linkUrl1 = linkUrl;
+			var OpenStyle = detailOpenStyle
+			var url = '/FrontNews.do?method=setVisitedCountByAjax&newsId='+id+'&times='+data;
+			//保存资讯的浏览次数！
+			$.post(url, function(data){
+				window.open(linkUrl1,OpenStyle);
+				});
+		},'html');
+	}
+	$(FrontNews_list01['FrontNews_list01-1378103793238_init']);
+	// ]]>
+	Date.prototype.Format = function (fmt) { //author: meizz 
+	    var o = {
+	        "M+": this.getMonth() + 1, //月份 
+	        "d+": this.getDate(), //日 
+	        "h+": this.getHours(), //小时 
+	        "m+": this.getMinutes(), //分 
+	        "s+": this.getSeconds(), //秒 
+	        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+	        "S": this.getMilliseconds() //毫秒 
+	    };
+	    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+	    for (var k in o)
+	    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+	    return fmt;
+	}
+	window.onload =function (){
+			var startDate = "";
+			var endDate = "";
+	 	 	 if(startDate != ""){
+				if(endDate != ""){
+					var newDate=  new Date().Format("yyyy/MM/dd");
+					var newDateValue = Date.parse(newDate);
+					var endDate1= endDate.replace(/-/g, "/");
+					var endDateValue =  Date.parse(endDate1);
+					if(endDateValue - newDateValue < 0){
+						var infoMakerValue = document.getElementById("10_infoMaker");
+						if(infoMakerValue !=null){
+							infoMakerValue.style.display = "none";
+						}
+					}else{
+						var infoMakerValue = document.getElementById("10_infoMaker");
+						if(infoMakerValue !=null){
+							infoMakerValue.style.display = "block";
+						}
+					}
+				}else{
+					var infoMakerValue = document.getElementById("10_infoMaker");
+					if(infoMakerValue !=null){
+						infoMakerValue.style.display = "block";
+					}
+				}
+			}  
+			var startDate = "";
+			var endDate = "";
+	 	 	 if(startDate != ""){
+				if(endDate != ""){
+					var newDate=  new Date().Format("yyyy/MM/dd");
+					var newDateValue = Date.parse(newDate);
+					var endDate1= endDate.replace(/-/g, "/");
+					var endDateValue =  Date.parse(endDate1);
+					if(endDateValue - newDateValue < 0){
+						var infoMakerValue = document.getElementById("16_infoMaker");
+						if(infoMakerValue !=null){
+							infoMakerValue.style.display = "none";
+						}
+					}else{
+						var infoMakerValue = document.getElementById("16_infoMaker");
+						if(infoMakerValue !=null){
+							infoMakerValue.style.display = "block";
+						}
+					}
+				}else{
+					var infoMakerValue = document.getElementById("16_infoMaker");
+					if(infoMakerValue !=null){
+						infoMakerValue.style.display = "block";
+					}
+				}
+			}  
+			var startDate = "";
+			var endDate = "";
+	 	 	 if(startDate != ""){
+				if(endDate != ""){
+					var newDate=  new Date().Format("yyyy/MM/dd");
+					var newDateValue = Date.parse(newDate);
+					var endDate1= endDate.replace(/-/g, "/");
+					var endDateValue =  Date.parse(endDate1);
+					if(endDateValue - newDateValue < 0){
+						var infoMakerValue = document.getElementById("17_infoMaker");
+						if(infoMakerValue !=null){
+							infoMakerValue.style.display = "none";
+						}
+					}else{
+						var infoMakerValue = document.getElementById("17_infoMaker");
+						if(infoMakerValue !=null){
+							infoMakerValue.style.display = "block";
+						}
+					}
+				}else{
+					var infoMakerValue = document.getElementById("17_infoMaker");
+					if(infoMakerValue !=null){
+						infoMakerValue.style.display = "block";
+					}
+				}
+			}  
+	}
+</script>
+              <div id="FrontNews_list01-1378103793238" class="FrontNews_list01-d1_c1">
+							<div id="box_main_sub3_sub1_sub2">
+											<div id="box_main_sub3_sub1_sub2_sub2">
+															<div xmlns="" class="columnSpace" id="elem-FrontComContent_detail01-1390525905149" name="通用内容详细信息">
+																			<div id="FrontComContent_detail01-1390525905149" class="FrontComContent_detail01-d1_c1">
+																							<div class="content">
+																											<div class="describe htmledit">
+																															<div class="FrontComContent_detail01-1390525905149_htmlbreak" id="FrontComContent_detail01-1390525905149_cont_1"
+					style="display: block; width: 1000px;"
+				>
+																																			<div style="text-align: left; width: 1000px; float: left; padding-top: 16px;">
+																																							<div style="margin: 10px auto; width: 1000px; color: #000000;" class="style1">
+																																											<div>
+												　
+                                   
+																																															<style type="text/css">
+<!--
+.STYLE2 {
+ font-size: 18px;
+ font-family: "宋体";
+ color: #0000FF;
+ line-height:30px;
+}
+.STYLE4 {font-size: 16px; line-height:30px;}
+.STYLE5 {color: #000000; line-height:30px;}
+.STYLE6 {font-size: 16px; color: #000000; line-height:30px;}
+.STYLE7 {
+ color: #FF0000;
+ font-weight: bold;
+ line-height:30px;
+}
+.style1 {
+				text-align: center;
+}
+-->		
+</style>
+                                  <script type="text/javascript"> 
+  function blnCheckRequirement(o, strMsg)
+  {
+    o.value = strSpaceBothEndsCut(o.value);
+    if (blnOnlySpace(o.value)) {
+      vodErrMsgFocus(o,strMsg);
+      return false;
+    }
+    return true;
+  }
+  function vodErrMsgFocus(o,strMsg)
+  {
+    if (strMsg != ''){
+      alert(strMsg);
+      if (typeof(o) == "undefined"){
+        return false;
+      }
+      if (typeof(o) == 'object'){
+        vodFocusTo(o);
+      }
+    }
+  }
+  function vodFocusTo(o)
+  {
+    o.focus();
+    if (o.tagName == "INPUT"
+      && (o.type.toUpperCase() == "BUTTON" || o.type.toUpperCase() == "SUBMIT")) {
+      return;
+    }
+    if (typeof(o.select) != 'undefined') {
+      o.select();
+    }
+  }
+  function strSpaceBothEndsCut(v)
+  {
+    return (v.replace(/^[\s　]+|[\s　]+$/g, ''));
+  }
+  function blnOnlySpace(s)
+  {
+    var re, arr;
+    re = /[^ 　\t\n\r]/;
+    arr = re.exec(s);
+    if (arr != null){
+      return false;
+    }else{
+      return true;
+    }
+  }
+  function calcLp()
+  {
+    var Pb, Z1, Z2, a, Lp;
+    var objForm = document.CalcForm;
+    if (!blnCheckRequirement(objForm.selPb, "请输入“齿型”。")) {
+      return false;
+    }
+    if (!blnCheckRequirement(objForm.txtZ1, "请输入“主动轮齿数”。")) {
+      return false;
+    }
+    if (isNaN(objForm.txtZ1.value)) {
+      vodErrMsgFocus(objForm.txtZ1, "请在“主动轮齿数”中，输入数字值。");
+      return false;
+    }
+    if (!blnCheckRequirement(objForm.txtZ2, "请输入“被动轮齿数”。")) {
+      return false;
+    }
+    if (isNaN(objForm.txtZ2.value)) {
+      vodErrMsgFocus(objForm.txtZ2, "请在“被动轮齿数”中，输入数字值。");
+      return false;
+    }
+    if (!blnCheckRequirement(objForm.txtA, "请输入“设计中心距”。")) {
+      return false;
+    }
+    if (isNaN(objForm.txtA.value)) {
+      vodErrMsgFocus(objForm.txtA, "请在“设计中心距”中，输入数字值。");
+      return false;
+    }
+    Pb = parseFloat(objForm.selPb.value);
+    Z1 = parseFloat(objForm.txtZ1.value);
+    Z2 = parseFloat(objForm.txtZ2.value);
+    a = parseFloat(objForm.txtA.value);
+    Lp = 2 * a + (Z1 + Z2) * Pb / 2 + Math.pow((Z2 - Z1) * Pb / 3.14, 2) / (4 * a);
+    objForm.txtLp.value = Math.round(Lp * 100) / 100;
+  }
+  function calcAR()
+  {
+    var Pb, Z1, Z2, Zb, M, a;
+    var objForm = document.CalcForm;
+    if (!blnCheckRequirement(objForm.selPb, "请输入“齿型”。")) {
+      return false;
+    }
+    if (!blnCheckRequirement(objForm.txtZ1, "请输入“主动轮齿数”。")) {
+      return false;
+    }
+    if (isNaN(objForm.txtZ1.value)) {
+      vodErrMsgFocus(objForm.txtZ1, "请在“主动轮齿数”中，输入数字值。");
+      return false;
+    }
+    if (!blnCheckRequirement(objForm.txtZ2, "请输入“被动轮齿数”。")) {
+      return false;
+    }
+    if (isNaN(objForm.txtZ2.value)) {
+      vodErrMsgFocus(objForm.txtZ2, "请在“被动轮齿数”中，输入数字值。");
+      return false;
+    }
+    if (!blnCheckRequirement(objForm.txtZb, "请输入“齿数”。")) {
+      return false;
+    }
+    if (isNaN(objForm.txtZb.value)) {
+      vodErrMsgFocus(objForm.txtZb, "请在“齿数”中，输入数字值。");
+      return false;
+    }
+    Pb = parseFloat(objForm.selPb.value);
+    Z1 = parseFloat(objForm.txtZ1.value);
+    Z2 = parseFloat(objForm.txtZ2.value);
+    Zb = parseFloat(objForm.txtZb.value);
+    M = Pb * (2 * Zb - Z1 - Z2) / 8;
+    a = M + Math.sqrt(Math.pow(M, 2) - Math.pow(Pb * (Z2 - Z1) / 3.14, 2) / 8);
+    objForm.txtAR.value = Math.round(a * 1000) / 1000;
+  }
+</script>
+                                  																																			</div>
+																																											<p class="STYLE2">同步带节线长计算</p>
+																																											<p class="STYLE2">&nbsp;</p>
+																																											<form action="" method="post" name="CalcForm">
+																																															<div>
+																																																			<label><span class="STYLE4">输入齿型</span> <select name="selPb">
+																																																			<option selected="selected" value=""></option>
+																																																			<option value="2.032">MXL</option>
+																																																			<option value="5.08">XL</option>
+																																																			<option value="9.525">L</option>
+																																																			<option value="12.7">H</option>
+																																																			<option value="22.225">XH</option>
+																																																			<option value="31.75">XXH</option>
+																																																			<option value="2">S2M/P2M</option>
+																																																			<option value="3">3M/S3M/P3M</option>
+																																																			<option value="4.5">S4.5M</option>
+																																																			<option value="5">5M/S5M/P5M</option>
+																																																			<option value="8">8M/S8M/P8M</option>
+																																																			<option value="14">14M/S14M/P14M</option>
+																																																			<option value="20">20M</option>
+																																																			<option value="2.5">T2.5</option>
+																																																			<option value="5">T5/AT5</option>
+																																																			<option value="10">T10/AT10</option>
+																																																			<option value="20">T20/AT20</option>
+																																																			</select> <span class="STYLE4">输入主动轮齿数</span> <input maxlength="3" name="txtZ1" size="10" /> <span class="STYLE4">输入被动轮齿数</span> <input maxlength="3" name="txtZ2" size="10" /> </label><br />
+																																																			<br />
+																																																			<label><span class="STYLE4">输入设计中心距</span> <input name="txtA" size="15" /> <span class="STYLE4">mm</span> </label><input onclick="javascript:calcLp();" type="button" value="计算" /> </div>
+																																															<p class="STYLE2"><span class="STYLE6">节线长计算结果</span><span class="STYLE5">:</span> <input name="txtLp" readonly="readonly" size="15" /> <span class="STYLE6">mm </span></p>
+																																															<hr style="width: 968px" />
+																																															<p class="STYLE2"><span class="STYLE6">根据样本现成模具型号,选择接近的同步带型号,其齿数为</span> <input name="txtZb" size="10" /> <input onclick="javascript:calcAR();" type="button" value="计算" /> </p>
+																																															<p class="STYLE4">使用节线长接近同步带型号,中心距则为:
+                                      <input name="txtAR" readonly="readonly" size="15" />
+                                      mm</p>
+																																															<hr />
+																																															<p><input type="reset" value="清除内容" /> <br />
+																																															<br />
+																																															<span style="color: #ff0000;">备注：以上计算生成的数据仅供参考，具体应以实际应用为准！</span></p>
+																																											</form>
+																																							</div>
+																																			</div>
+																															</div>
+																											</div>
+																							</div>
+																			</div>
+															</div>
+											</div>
+							</div>
+				</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+</body>
+</html>
+
+
+
